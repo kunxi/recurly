@@ -16,7 +16,8 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-from recurly.models import User, Task
+from recurly.models.user import User
+from recurly.models.task import Task
 from sqlmodel import SQLModel
 
 # Import all models to ensure they are registered with SQLModel

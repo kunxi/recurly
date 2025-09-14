@@ -2,10 +2,11 @@ from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from typing import List
-from .auth import get_current_active_user
-from .database import get_session
-from .models import User, Task, TaskCreate, TaskRead, TaskUpdate
-from .schemas import TaskCreate as TaskCreateSchema, TaskUpdate as TaskUpdateSchema, TaskRead as TaskReadSchema, TaskComplete
+from ..auth import get_current_active_user
+from ..database import get_session
+from ..models.user import User
+from ..models.task import Task, TaskCreate, TaskRead, TaskUpdate
+from ..schemas import TaskCreate as TaskCreateSchema, TaskUpdate as TaskUpdateSchema, TaskRead as TaskReadSchema, TaskComplete
 
 router = APIRouter()
 

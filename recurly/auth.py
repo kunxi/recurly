@@ -5,7 +5,7 @@ from passlib.context import CryptContext
 from fastapi import HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session, select
-from .models import User
+from .models.user import User
 from .database import get_session
 
 # Configuration

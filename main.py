@@ -1,10 +1,10 @@
 from typing import Union
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from recurly.routes import router as auth_router
-from recurly.task_routes import router as task_router
+from recurly.routes.auth import router as auth_router
+from recurly.routes.task import router as task_router
 from recurly.database import create_db_and_tables
-from recurly.models import User
+from recurly.models.user import User
 from recurly.auth import get_current_active_user
 
 app = FastAPI(title="Recurly API", version="0.1.0")
