@@ -10,3 +10,4 @@ wheels/
 .venv/
 .devenv/
 .devenv.flake.nix
+*.db
