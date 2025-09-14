@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import datetime
 from pydantic import BaseModel, EmailStr
 
 
@@ -24,3 +25,37 @@ class UserRegister(BaseModel):
     email: EmailStr
     password: str
     password_confirm: str
+
+
+class TaskCreate(BaseModel):
+    """Task creation schema."""
+    title: str
+    description: Optional[str] = None
+    cadence: str
+    assigned_to: int
+
+
+class TaskUpdate(BaseModel):
+    """Task update schema."""
+    title: Optional[str] = None
+    description: Optional[str] = None
+    cadence: Optional[str] = None
+    last_completed: Optional[datetime] = None
+    assigned_to: Optional[int] = None
+
+
+class TaskRead(BaseModel):
+    """Task read schema."""
+    id: int
+    title: str
+    description: Optional[str] = None
+    cadence: str
+    last_completed: Optional[datetime] = None
+    assigned_to: int
+    created_at: datetime
+    updated_at: datetime
+
+
+class TaskComplete(BaseModel):
+    """Task completion schema."""
+    completed_at: Optional[datetime] = None
