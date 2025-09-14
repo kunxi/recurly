@@ -2,6 +2,7 @@ from typing import Union
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from recurly.routes import router as auth_router
+from recurly.task_routes import router as task_router
 from recurly.database import create_db_and_tables
 from recurly.models import User
 from recurly.auth import get_current_active_user
@@ -19,6 +20,9 @@ app.add_middleware(
 
 # Include authentication routes
 app.include_router(auth_router, prefix="/auth", tags=["authentication"])
+
+# Include task routes
+app.include_router(task_router, prefix="/api", tags=["tasks"])
 
 # Create database tables on startup
 @app.on_event("startup")
